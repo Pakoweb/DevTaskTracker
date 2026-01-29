@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DevTask Tracker</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <h1>DevTask Tracker</h1>
+      <p class="subtitle">Gestor de tareas técnicas</p>
+    </div>
+  </header>
+
+  <main class="container grid">
+    <section class="card">
+      <h2>Nueva tarea</h2>
+
+      <form id="taskForm" class="form">
+        <label>
+          Título *
+          <input id="titulo" type="text" required placeholder="Título tarea..."/>
+        </label>
+
+        <label>
+          Descripción
+          <textarea id="descripcion" rows="3" placeholder="Detalles técnicos..."></textarea>
+        </label>
+
+        <div class="row">
+          <label>
+            Tecnología *
+            <select id="tecnologia" required>
+              <option value="Java">Java</option>
+              <option value="JavaScript">JavaScript</option>
+              <option value="Python">Python</option>
+              <option value="Node">Node</option>
+              <option value="SQL">SQL</option>
+              <option value="DevOps">DevOps</option>
+              <option value="Otro" selected>Otro</option>
+            </select>
+          </label>
+
+          <label>
+            Estado
+            <select id="estado">
+              <option value="pending" selected>Pendiente</option>
+              <option value="done">Completada</option>
+            </select>
+          </label>
+        </div>
+
+        <button class="btn primary" type="submit">Guardar</button>
+        <p id="msg" class="msg" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="list-header">
+        <h2>Tareas</h2>
+        <div class="actions">
+          <button id="toggleViewBtn" class="btn" type="button">Ver Historial</button>
+          <button id="refreshBtn" class="btn" type="button">Actualizar</button>
+        </div>
+      </div>
+
+      <ul id="tasksList" class="tasks"></ul>
+      <p id="emptyState" class="empty">No hay tareas todavía.</p>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
